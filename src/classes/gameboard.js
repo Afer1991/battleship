@@ -1,6 +1,16 @@
 export default class Gameboard {
   constructor() {
-    this.board = new Array(new Array(10), new Array(10), new Array(10), new Array(10), new Array(10), new Array(10), new Array(10), new Array(10), new Array(10), new Array(10));
+    this.board = this.buildBoard();
+  }
+
+  buildBoard() {
+    const board = new Array(10);
+
+    for(let i = 0; i < board.length; i++) {
+      board[i] = new Array(10);
+    };
+
+    return board;
   }
 
   placeShip(ship, x, y, isvertical) {
