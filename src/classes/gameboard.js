@@ -1,6 +1,15 @@
+import Ship from './ship';
+
 export default class Gameboard {
   constructor() {
     this.board = this.buildBoard();
+    this.fleet = [
+      new Ship(5), 
+      new Ship(4), 
+      new Ship(3), 
+      new Ship(3), 
+      new Ship(2)
+    ];
   }
 
   buildBoard() {
@@ -45,11 +54,35 @@ export default class Gameboard {
     if (isvertical) {
       for (let i = 0; i < ship.length; i++) {
         this.board[y + i][x] = ship;
+        ship.setCoordinates(x, y + i);
       };
     } else {
       for (let i = 0; i < ship.length; i++) {
         this.board[y][x + i] = ship;
+        ship.setCoordinates(x + i, y);
       };
     }
-  } 
+  }
+  
+  receiveAttack(x, y) {
+    if (this.board[y][x] && this.board[y][x] !== "Missed Attack") {
+      if(!this.board[y][x].isCoordinateHit(x, y)) {
+        this.board[y][x].hit();
+        this.board[y][x].hitCoordinates(x, y);
+        return;
+      };
+
+      return false;
+    } else if (this.board[y][x] == "Missed Attack") {
+      return false;
+    } else {
+      this.board[y][x] = "Missed Attack";
+      return;
+    };
+  }
+  
+  allShipsSunk() {
+    const areAllShipsSunk = this.fleet.every(ship => ship.isSunk());
+    return areAllShipsSunk;
+  }
 }
