@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Black Ops One';
+  src: url('./assets/fonts/BlackOpsOne-Regular.ttf');
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+
+.header {
+  font-family: 'Black Ops One';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.footer {
+  display: none;
+}
