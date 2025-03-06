@@ -3,6 +3,16 @@
   src: url('./assets/fonts/BlackOpsOne-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Quantico';
+  src: url('./assets/fonts/Quantico-Regular.ttf');
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -13,6 +23,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 1fr 9fr;
+  font-family: 'Quantico';
 }
 
 .header {
@@ -21,6 +32,62 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  background: #141619;
+  color: #FFF;
+}
+
+.main {
+  background: #4A7B9D;
+}
+
+.form-container {
+  background: #FFF;
+  padding: 1rem 1.5rem;
+  border-radius: 1.25rem;
+}
+
+.form-container > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#name {
+  font-size: 1.1875rem;
+  font-family: 'Quantico';
+  border: none;
+  border-bottom: 2px solid #141619;
+  max-width: 200px;
+}
+
+#name:focus {
+  outline: none;
+}
+
+#start-btn {
+  margin-top: 1rem;
+  padding: .33rem 1rem;
+  border: 1px solid #141619;
+  font-size: 1.1875rem;
+  font-family: 'Quantico';
+  cursor: pointer;
+  border-radius: 100px;
+  background: #F7CB15;
+  color: #141619;
+  font-weight: bold;
+}
+
+#start-btn:focus,
+#start-btn:hover {
+  opacity: .65;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .footer {
