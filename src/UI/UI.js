@@ -4,7 +4,7 @@ const ui = () => {
   document.body.appendChild(header);
   
   const headerLogo = document.createElement("h1");
-  headerLogo.innerText = "Battleship";
+  headerLogo.innerText = "BATTLESHIP";
   header.appendChild(headerLogo);
 
   const main = document.createElement("main");
