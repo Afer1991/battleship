@@ -10,7 +10,7 @@ const form = () => {
   main.appendChild(container);
 
   const formContainer = document.createElement("div");
-  formContainer.classList.add("form-container");
+  formContainer.setAttribute("id", "form-container");
   container.appendChild(formContainer);
 
   const form = document.createElement("form");

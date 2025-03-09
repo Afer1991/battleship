@@ -47,13 +47,19 @@ body {
   height: 100%;
 }
 
-.form-container {
+#form-container {
   background: #FFF;
   padding: 1rem 1.5rem;
   border-radius: 1.25rem;
+  opacity: 1;
+  transition: opacity 1500ms ease-in-out;
 }
 
-.form-container > form {
+#form-container.fade {
+  opacity: 0;
+}
+
+#form-container > form {
   display: flex;
   flex-direction: column;
   align-items: center;

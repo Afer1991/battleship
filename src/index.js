@@ -13,11 +13,17 @@ ui();
 form();
 
 const playerName = document.getElementById("name");
+const formContainer = document.getElementById("form-container");
 const playerForm = document.querySelector("form");
 
 playerForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const player = new Player(playerName.value);
-  const computer = new Computer();
-  renderBoards(player, computer);
+  formContainer.classList.toggle("fade");
+
+  setTimeout(() => {
+    const player = new Player(playerName.value);
+    const computer = new Computer();
+
+    renderBoards(player, computer);
+  }, 2000);
 });
