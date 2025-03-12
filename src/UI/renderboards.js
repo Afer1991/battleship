@@ -9,6 +9,8 @@ const createBoard = (gameboard) => {
 
     for (let j = 0; j < gameboard[i].length; j++) {
       const cell = document.createElement("div");
+      cell.dataset.y = `${i}`;
+      cell.dataset.x = `${j}`;
       cell.classList.add("cell");
       row.appendChild(cell);
     };
