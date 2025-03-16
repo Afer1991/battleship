@@ -1,4 +1,4 @@
-const createBoard = (gameboard) => {
+const createBoard = (gameboard, player) => {
   const container = document.createElement("div");
   container.classList.add("board");
 
@@ -9,8 +9,7 @@ const createBoard = (gameboard) => {
 
     for (let j = 0; j < gameboard[i].length; j++) {
       const cell = document.createElement("div");
-      cell.dataset.y = `${i}`;
-      cell.dataset.x = `${j}`;
+      cell.setAttribute("id", `${player.name}-${i}-${j}`);
       cell.classList.add("cell");
       row.appendChild(cell);
     };
@@ -48,7 +47,8 @@ const renderBoards = (player, computer) => {
   playerName.innerText = `${player.name.toUpperCase()}`;
   playerBoardContainer.appendChild(playerName);
 
-  const playerBoard = createBoard(player.gameboard.board);
+  const playerBoard = createBoard(player.gameboard.board, player);
+  playerBoard.setAttribute("id", "player-board");
   playerBoardContainer.appendChild(playerBoard);
 
   const computerBoardContainer = document.createElement("div");
@@ -59,7 +59,8 @@ const renderBoards = (player, computer) => {
   computerName.innerText = `${computer.name.toUpperCase()}`;
   computerBoardContainer.appendChild(computerName);
 
-  const computerBoard = createBoard(computer.gameboard.board);
+  const computerBoard = createBoard(computer.gameboard.board, computer);
+  computerBoard.setAttribute("id", "computer-board");
   computerBoardContainer.appendChild(computerBoard);
 };
 

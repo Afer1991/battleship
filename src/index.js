@@ -2,11 +2,14 @@ import "./style.css";
 import { Player, Computer } from './classes/players.js';
 import ui from './UI/UI.js';
 import form from './UI/form.js';
+import playGame from "./UI/playgame.js";
 import { createBoard, renderBoards } from './UI/renderboards.js'
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
+import { faX } from "@fortawesome/free-solid-svg-icons/faX";
 
 library.add(faGithub);
+library.add(faX);
 dom.watch();
 
 ui();
@@ -25,5 +28,6 @@ playerForm.addEventListener("submit", (e) => {
     const computer = new Computer();
 
     renderBoards(player, computer);
+    playGame(player, computer);
   }, 2000);
 });
