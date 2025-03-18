@@ -1,3 +1,5 @@
+import typeWriter from "../helpers/typewriter.js";
+
 const createBoard = (gameboard, player) => {
   const container = document.createElement("div");
   container.classList.add("board");
@@ -32,8 +34,9 @@ const renderBoards = (player, computer) => {
 
   const textContainer = document.createElement("div");
   textContainer.classList.add("text-container");
-  textContainer.innerText = "Awaiting orders...";
+  textContainer.setAttribute("id", "text-container");
   container.appendChild(textContainer);
+  typeWriter("text-container", `Awaiting orders, Captain ${player.name}`, 0);
 
   const boardContainer = document.createElement("div");
   boardContainer.classList.add("board-container");
