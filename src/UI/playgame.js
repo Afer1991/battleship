@@ -1,4 +1,5 @@
 import renderShip from "./renderships.js";
+import typeWriter from "../helpers/typewriter.js";
 
 const playGame = (player, computer) => {
   renderShip(player, player.gameboard.fleet[0], 0, 0, false);
@@ -35,6 +36,10 @@ const playRound = (player, computer, square, x, y) => {
     square.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
   };
 
+  const textContainer = document.getElementById("text-container");
+  textContainer.innerHTML = "";
+  typeWriter("text-container", "Computer is making a move...", 0);
+
   setTimeout(() => {
     let computerAttack = computer.makeMove();
     const playerSquare = document.getElementById(`${player.name}-${computerAttack[1]}-${computerAttack[0]}`);
@@ -46,7 +51,10 @@ const playRound = (player, computer, square, x, y) => {
     } else {
       playerSquare.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
     };
-  }, 2000);
+
+    textContainer.innerHTML = "";
+    typeWriter("text-container", `Awaiting orders, Captain ${player.name}`, 0);
+  }, 4000);
 };
 
 export default playGame;
