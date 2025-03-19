@@ -1,5 +1,6 @@
 import renderShip from "./renderships.js";
 import typeWriter from "../helpers/typewriter.js";
+import endGame from "./endgame.js";
 
 const playGame = (player, computer) => {
   renderShip(player, player.gameboard.fleet[0], 0, 0, false);
@@ -36,6 +37,11 @@ const playRound = (player, computer, square, x, y) => {
     square.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
   };
 
+  if (computer.gameboard.allShipsSunk()) {
+    endGame(player);
+    return;
+  };
+
   const textContainer = document.getElementById("text-container");
   textContainer.innerHTML = "";
   typeWriter("text-container", "Computer is making a move...", 0);
@@ -50,6 +56,11 @@ const playRound = (player, computer, square, x, y) => {
       playerSquare.innerHTML = '<i class="fa-solid fa-x"></i>';
     } else {
       playerSquare.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
+    };
+
+    if (computer.gameboard.allShipsSunk()) {
+      endGame(computer);
+      return;
     };
 
     textContainer.innerHTML = "";

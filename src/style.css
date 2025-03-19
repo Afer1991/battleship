@@ -65,6 +65,15 @@ body {
   align-items: center;
   gap: 1rem;
 }
+.winner-container {
+  background: #FFF;
+  padding: 1rem 1.5rem;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
 #name {
   font-size: 1.1875rem;
@@ -78,7 +87,7 @@ body {
   outline: none;
 }
 
-#start-btn {
+#start-btn, #restart-btn {
   margin-top: 1rem;
   padding: .33rem 1rem;
   border: 1px solid #141619;
@@ -92,7 +101,9 @@ body {
 }
 
 #start-btn:focus,
-#start-btn:hover {
+#start-btn:hover,
+#restart-btn:focus,
+#restart-btn:hover {
   opacity: .65;
 }
 
@@ -166,6 +177,10 @@ body {
 }
 
 @media (min-width: 700px) {
+  .winner-text, .winner {
+    font-size: 4rem;
+  }
+
   .board-container {
     flex-direction: row;
   }
