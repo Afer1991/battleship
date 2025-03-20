@@ -2,6 +2,8 @@ import renderShip from "./renderships.js";
 import typeWriter from "../helpers/typewriter.js";
 import endGame from "./endgame.js";
 
+let computerTurn = false;
+
 const playGame = (player, computer) => {
   renderShip(player, player.gameboard.fleet[0], 0, 0, false);
   renderShip(player, player.gameboard.fleet[1], 1, 2, true);
@@ -30,42 +32,50 @@ const boardEventListeners = (player, computer) => {
 };
 
 const playRound = (player, computer, square, x, y) => {
-  computer.gameboard.receiveAttack(x, y);
-  if (computer.gameboard.board[y][x] == "Missed Attack") {
-    square.innerHTML = '<i class="fa-solid fa-x"></i>';
-  } else {
-    square.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
-  };
-
-  if (computer.gameboard.allShipsSunk()) {
-    endGame(player);
-    return;
-  };
-
-  const textContainer = document.getElementById("text-container");
-  textContainer.innerHTML = "";
-  typeWriter("text-container", "Computer is making a move...", 0);
-
-  setTimeout(() => {
-    let computerAttack = computer.makeMove();
-    const playerSquare = document.getElementById(`${player.name}-${computerAttack[1]}-${computerAttack[0]}`);
-
-    player.gameboard.receiveAttack(computerAttack[0], computerAttack[1]);
-
-    if (player.gameboard.board[computerAttack[1]][computerAttack[0]] == "Missed Attack") {
-      playerSquare.innerHTML = '<i class="fa-solid fa-x"></i>';
+  if (!computerTurn) {
+    computer.gameboard.receiveAttack(x, y);
+    if (computer.gameboard.board[y][x] == "Missed Attack") {
+      square.innerHTML = '<i class="fa-solid fa-x"></i>';
     } else {
-      playerSquare.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
+      square.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
     };
 
+    computerTurn = true;
+
     if (computer.gameboard.allShipsSunk()) {
-      endGame(computer);
+      endGame(player);
       return;
     };
 
+    const textContainer = document.getElementById("text-container");
     textContainer.innerHTML = "";
-    typeWriter("text-container", `Awaiting orders, Captain ${player.name}`, 0);
-  }, 4000);
+    typeWriter("text-container", "Computer is making a move...", 0);
+
+    setTimeout(() => {
+      let computerAttack = computer.makeMove();
+      const playerSquare = document.getElementById(`${player.name}-${computerAttack[1]}-${computerAttack[0]}`);
+
+      player.gameboard.receiveAttack(computerAttack[0], computerAttack[1]);
+
+      if (player.gameboard.board[computerAttack[1]][computerAttack[0]] == "Missed Attack") {
+        playerSquare.innerHTML = '<i class="fa-solid fa-x"></i>';
+      } else {
+        playerSquare.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
+      };
+
+      if (computer.gameboard.allShipsSunk()) {
+        endGame(computer);
+        return;
+      };
+
+      textContainer.innerHTML = "";
+      typeWriter("text-container", `Awaiting orders, Captain ${player.name}`, 0);
+
+      setTimeout(() => {
+        computerTurn = false;
+      }, 2000);
+    }, 4000);
+  };  
 };
 
 export default playGame;
