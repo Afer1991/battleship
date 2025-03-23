@@ -71,6 +71,7 @@ const pickRandomPlacement = (player) => {
   renderShip(player, player.gameboard.fleet[2], possiblePlacements[randomNumber][2][0], possiblePlacements[randomNumber][2][1], possiblePlacements[randomNumber][2][2]);
   renderShip(player, player.gameboard.fleet[3], possiblePlacements[randomNumber][3][0], possiblePlacements[randomNumber][3][1], possiblePlacements[randomNumber][3][2]);
   renderShip(player, player.gameboard.fleet[4], possiblePlacements[randomNumber][4][0], possiblePlacements[randomNumber][4][1], possiblePlacements[randomNumber][4][2]);
+  console.log(player);
 };
 
 const reshuffle = (player) => {

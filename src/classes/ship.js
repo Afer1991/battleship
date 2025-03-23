@@ -17,10 +17,11 @@ export default class Ship {
     }
   }
 
-  setCoordinates(hor, ver) {
+  setCoordinates(hor, ver, isvertical) {
     const coor = {
       x: hor,
       y: ver,
+      isVertical: isvertical,
       hit: false,
     }
 

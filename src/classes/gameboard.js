@@ -54,12 +54,12 @@ export default class Gameboard {
     if (isvertical) {
       for (let i = 0; i < ship.length; i++) {
         this.board[y + i][x] = ship;
-        ship.setCoordinates(x, y + i);
+        ship.setCoordinates(x, y + i, isvertical);
       };
     } else {
       for (let i = 0; i < ship.length; i++) {
         this.board[y][x + i] = ship;
-        ship.setCoordinates(x + i, y);
+        ship.setCoordinates(x + i, y, isvertical);
       };
     }
   }
