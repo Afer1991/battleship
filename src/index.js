@@ -4,6 +4,7 @@ import ui from './UI/UI.js';
 import form from './UI/form.js';
 import playGame from "./UI/playgame.js";
 import { createBoard, renderBoards } from './UI/renderboards.js';
+import placeShipsBoard from "./UI/placeships.js";
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faX } from "@fortawesome/free-solid-svg-icons/faX";
@@ -27,7 +28,9 @@ playerForm.addEventListener("submit", (e) => {
     const player = new Player(playerName.value);
     const computer = new Computer();
 
-    renderBoards(player, computer);
-    playGame(player, computer);
+    placeShipsBoard(player, computer);
+
+    //renderBoards(player, computer);
+    //playGame(player, computer);
   }, 2000);
 });

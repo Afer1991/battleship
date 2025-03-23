@@ -2,8 +2,6 @@ import renderShip from "./renderships.js";
 import typeWriter from "../helpers/typewriter.js";
 import endGame from "./endgame.js";
 
-let computerTurn = false;
-
 const playGame = (player, computer) => {
   renderShip(player, player.gameboard.fleet[0], 0, 0, false);
   renderShip(player, player.gameboard.fleet[1], 1, 2, true);
@@ -32,7 +30,7 @@ const boardEventListeners = (player, computer) => {
 };
 
 const playRound = (player, computer, square, x, y) => {
-  if (!computerTurn) {
+  if (!computer.turn) {
     computer.gameboard.receiveAttack(x, y);
     if (computer.gameboard.board[y][x] == "Missed Attack") {
       square.innerHTML = '<i class="fa-solid fa-x"></i>';
@@ -40,7 +38,7 @@ const playRound = (player, computer, square, x, y) => {
       square.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
     };
 
-    computerTurn = true;
+    computer.turn = true;
 
     if (computer.gameboard.allShipsSunk()) {
       endGame(player);
@@ -72,7 +70,7 @@ const playRound = (player, computer, square, x, y) => {
       typeWriter("text-container", `Awaiting orders, Captain ${player.name}`, 0);
 
       setTimeout(() => {
-        computerTurn = false;
+        computer.turn = false;
       }, 2000);
     }, 4000);
   };  

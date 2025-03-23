@@ -87,7 +87,10 @@ body {
   outline: none;
 }
 
-#start-btn, #restart-btn {
+#start-btn, 
+#restart-btn,
+#reshuffle,
+#start-game {
   margin-top: 1rem;
   padding: .33rem 1rem;
   border: 1px solid #141619;
@@ -100,18 +103,34 @@ body {
   font-weight: bold;
 }
 
+#reshuffle {
+  margin-right: 1rem;
+}
+
 #start-btn:focus,
 #start-btn:hover,
 #restart-btn:focus,
-#restart-btn:hover {
+#restart-btn:hover, 
+#reshuffle:focus,
+#reshuffle:hover, 
+#start-game:focus,
+#start-game:hover {
   opacity: .65;
 }
 
+.place-ships-text,
 .text-container {
   background: #FFF;
   padding: .5rem 1rem;
   border-radius: 1.25rem;
   border: 2px solid #141619;
+}
+
+.place-ships-text {
+  font-size: 1.3rem;
+}
+
+.text-container {
   max-width: 275px;
 }
 
@@ -128,6 +147,10 @@ body {
   font-family: "Black Ops One";
   text-shadow: 2px 3px 2px rgba(0,0,0, 0.5);
   letter-spacing: .3rem;
+}
+
+.place-ships {
+  margin-top: 1rem;
 }
 
 .board {
@@ -179,6 +202,10 @@ body {
 @media (min-width: 700px) {
   .winner-text, .winner {
     font-size: 4rem;
+  }
+
+  .place-ships-text {
+    font-size: 2rem;
   }
 
   .board-container {

@@ -10,6 +10,7 @@ class Player {
 class Computer {
   constructor() {
     this.name = "Computer";
+    this.turn = false;
     this.gameboard = new Gameboard();
     this.opponentBoard = this.detectOpponentBoard();
   }
