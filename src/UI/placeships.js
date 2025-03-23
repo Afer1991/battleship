@@ -40,6 +40,7 @@ const placeShipsBoard = (player, computer) => {
   container.appendChild(playerBoard);
 
   pickRandomPlacement(player);
+  computerPlacement(computer);
 
   reshuffleBtn.addEventListener("click", () => {
     reshuffle(player);
@@ -77,6 +78,34 @@ const pickRandomPlacement = (player) => {
   renderShip(player, player.gameboard.fleet[2], possiblePlacements[randomNumber][2][0], possiblePlacements[randomNumber][2][1], possiblePlacements[randomNumber][2][2]);
   renderShip(player, player.gameboard.fleet[3], possiblePlacements[randomNumber][3][0], possiblePlacements[randomNumber][3][1], possiblePlacements[randomNumber][3][2]);
   renderShip(player, player.gameboard.fleet[4], possiblePlacements[randomNumber][4][0], possiblePlacements[randomNumber][4][1], possiblePlacements[randomNumber][4][2]);
+};
+
+const computerPlacement = (computer) => {
+  const possiblePlacements = [
+    [
+      [1, 1, true], [4, 1, false], [5, 4, true], [7, 9, false], [2, 8, false]
+    ],
+    [
+      [8, 4, true], [4, 0, true], [1, 5, false], [4, 8, false], [7, 2, false]
+    ],
+    [
+      [3, 5, false], [6, 8, false], [6, 2, false], [3, 1, true], [0, 0, true]
+    ],
+    [
+      [4, 1, false], [2, 6, false], [1, 8, false], [8, 5, true], [2, 2, true]
+    ],
+    [
+      [4, 8, false], [5, 2, true], [0, 6, true], [1, 1, false], [7, 1, true]
+    ]
+  ];
+
+  const randomNumber = Math.floor(Math.random() * possiblePlacements.length);
+
+  computer.gameboard.placeShip(computer.gameboard.fleet[0], possiblePlacements[randomNumber][0][0], possiblePlacements[randomNumber][0][1], possiblePlacements[randomNumber][0][2]);
+  computer.gameboard.placeShip(computer.gameboard.fleet[1], possiblePlacements[randomNumber][1][0], possiblePlacements[randomNumber][1][1], possiblePlacements[randomNumber][1][2]);
+  computer.gameboard.placeShip(computer.gameboard.fleet[2], possiblePlacements[randomNumber][2][0], possiblePlacements[randomNumber][2][1], possiblePlacements[randomNumber][2][2]);
+  computer.gameboard.placeShip(computer.gameboard.fleet[3], possiblePlacements[randomNumber][3][0], possiblePlacements[randomNumber][3][1], possiblePlacements[randomNumber][3][2]);
+  computer.gameboard.placeShip(computer.gameboard.fleet[4], possiblePlacements[randomNumber][4][0], possiblePlacements[randomNumber][4][1], possiblePlacements[randomNumber][4][2]);
 };
 
 const reshuffle = (player) => {

@@ -9,11 +9,11 @@ const playGame = (player, computer) => {
   renderShip(player, player.gameboard.fleet[3], player.gameboard.fleet[3].coordinates[0]["x"], player.gameboard.fleet[3].coordinates[0]["y"], player.gameboard.fleet[3].coordinates[0]["isVertical"]);
   renderShip(player, player.gameboard.fleet[4], player.gameboard.fleet[4].coordinates[0]["x"], player.gameboard.fleet[4].coordinates[0]["y"], player.gameboard.fleet[4].coordinates[0]["isVertical"]);
 
-  computer.gameboard.placeShip(computer.gameboard.fleet[0], 1, 1, true);
+  /**computer.gameboard.placeShip(computer.gameboard.fleet[0], 1, 1, true);
   computer.gameboard.placeShip(computer.gameboard.fleet[1], 3, 6, false);
   computer.gameboard.placeShip(computer.gameboard.fleet[2], 6, 1, true);
   computer.gameboard.placeShip(computer.gameboard.fleet[3], 7, 9, false);
-  computer.gameboard.placeShip(computer.gameboard.fleet[4], 1, 8, false);
+  computer.gameboard.placeShip(computer.gameboard.fleet[4], 1, 8, false);**/
 
   boardEventListeners(player, computer);
 };
