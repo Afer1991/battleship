@@ -1,6 +1,7 @@
 import { createBoard, renderBoards } from "./renderboards";
 import renderShip from "./renderships";
 import Gameboard from "../classes/gameboard";
+import playGame from "./playgame";
 
 const placeShipsBoard = (player, computer) => {
   const main = document.querySelector(".main");
@@ -43,6 +44,11 @@ const placeShipsBoard = (player, computer) => {
   reshuffleBtn.addEventListener("click", () => {
     reshuffle(player);
   });
+
+  startBtn.addEventListener("click", () => {
+    renderBoards(player, computer);
+    playGame(player, computer);
+  });
 };
 
 const pickRandomPlacement = (player) => {
@@ -71,7 +77,6 @@ const pickRandomPlacement = (player) => {
   renderShip(player, player.gameboard.fleet[2], possiblePlacements[randomNumber][2][0], possiblePlacements[randomNumber][2][1], possiblePlacements[randomNumber][2][2]);
   renderShip(player, player.gameboard.fleet[3], possiblePlacements[randomNumber][3][0], possiblePlacements[randomNumber][3][1], possiblePlacements[randomNumber][3][2]);
   renderShip(player, player.gameboard.fleet[4], possiblePlacements[randomNumber][4][0], possiblePlacements[randomNumber][4][1], possiblePlacements[randomNumber][4][2]);
-  console.log(player);
 };
 
 const reshuffle = (player) => {

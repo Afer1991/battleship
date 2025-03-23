@@ -3,11 +3,11 @@ import typeWriter from "../helpers/typewriter.js";
 import endGame from "./endgame.js";
 
 const playGame = (player, computer) => {
-  renderShip(player, player.gameboard.fleet[0], 0, 0, false);
-  renderShip(player, player.gameboard.fleet[1], 1, 2, true);
-  renderShip(player, player.gameboard.fleet[2], 3, 5, false);
-  renderShip(player, player.gameboard.fleet[3], 6, 8, false);
-  renderShip(player, player.gameboard.fleet[4], 8, 1, true);
+  renderShip(player, player.gameboard.fleet[0], player.gameboard.fleet[0].coordinates[0]["x"], player.gameboard.fleet[0].coordinates[0]["y"], player.gameboard.fleet[0].coordinates[0]["isVertical"]);
+  renderShip(player, player.gameboard.fleet[1], player.gameboard.fleet[1].coordinates[0]["x"], player.gameboard.fleet[1].coordinates[0]["y"], player.gameboard.fleet[1].coordinates[0]["isVertical"]);
+  renderShip(player, player.gameboard.fleet[2], player.gameboard.fleet[2].coordinates[0]["x"], player.gameboard.fleet[2].coordinates[0]["y"], player.gameboard.fleet[2].coordinates[0]["isVertical"]);
+  renderShip(player, player.gameboard.fleet[3], player.gameboard.fleet[3].coordinates[0]["x"], player.gameboard.fleet[3].coordinates[0]["y"], player.gameboard.fleet[3].coordinates[0]["isVertical"]);
+  renderShip(player, player.gameboard.fleet[4], player.gameboard.fleet[4].coordinates[0]["x"], player.gameboard.fleet[4].coordinates[0]["y"], player.gameboard.fleet[4].coordinates[0]["isVertical"]);
 
   computer.gameboard.placeShip(computer.gameboard.fleet[0], 1, 1, true);
   computer.gameboard.placeShip(computer.gameboard.fleet[1], 3, 6, false);
