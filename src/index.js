@@ -29,8 +29,5 @@ playerForm.addEventListener("submit", (e) => {
     const computer = new Computer();
 
     placeShipsBoard(player, computer);
-
-    //renderBoards(player, computer);
-    //playGame(player, computer);
   }, 2000);
 });

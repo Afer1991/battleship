@@ -68,6 +68,21 @@ const pickRandomPlacement = (player) => {
     ],
     [
       [4, 8, false], [5, 2, true], [0, 6, true], [1, 1, false], [7, 1, true]
+    ],
+    [
+      [1, 5, true], [5, 5, false], [3, 2, true], [6, 8, false], [7, 1, true]
+    ],
+    [
+      [1, 1, false], [5, 8, false], [8, 3, true], [1, 4, false], [1, 7, false]
+    ],
+    [
+      [4, 4, true], [5, 1, false], [2, 1, true], [9, 5, true], [1, 6, false]
+    ],
+    [
+      [2, 4, false], [4, 6, true], [2, 2, false], [6, 7, false], [8, 3, true]
+    ],
+    [
+      [8, 4, true], [1, 5, true], [0, 0, false], [5, 3, true], [3, 9, false]
     ]
   ];
 
@@ -96,6 +111,21 @@ const computerPlacement = (computer) => {
     ],
     [
       [4, 8, false], [5, 2, true], [0, 6, true], [1, 1, false], [7, 1, true]
+    ],
+    [
+      [1, 5, true], [5, 5, false], [3, 2, true], [6, 8, false], [7, 1, true]
+    ],
+    [
+      [1, 1, false], [5, 8, false], [8, 3, true], [1, 4, false], [1, 7, false]
+    ],
+    [
+      [4, 4, true], [5, 1, false], [2, 1, true], [9, 5, true], [1, 6, false]
+    ],
+    [
+      [2, 4, false], [4, 6, true], [2, 2, false], [6, 7, false], [8, 3, true]
+    ],
+    [
+      [8, 4, true], [1, 5, true], [0, 0, false], [5, 3, true], [3, 9, false]
     ]
   ];
 

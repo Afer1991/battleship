@@ -2,6 +2,7 @@ import form from "./form";
 import { Player, Computer } from '../classes/players.js';
 import playGame from "./playgame.js";
 import { renderBoards } from './renderboards.js';
+import placeShipsBoard from "./placeships.js";
 
 const endGame = (player) => {
   const main = document.querySelector(".main");
@@ -52,8 +53,7 @@ const endGame = (player) => {
         const player = new Player(playerName.value);
         const computer = new Computer();
 
-        renderBoards(player, computer);
-        playGame(player, computer);
+        placeShipsBoard(player, computer);
       }, 2000);
     });
   });
