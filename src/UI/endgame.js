@@ -3,6 +3,7 @@ import { Player, Computer } from '../classes/players.js';
 import playGame from "./playgame.js";
 import { renderBoards } from './renderboards.js';
 import placeShipsBoard from "./placeships.js";
+import fadeTransition from "../helpers/fade.js";
 
 const endGame = (player) => {
   const main = document.querySelector(".main");
@@ -12,6 +13,7 @@ const endGame = (player) => {
   };
 
   const container = document.createElement("div");
+  container.setAttribute("id", "container");
   container.classList.add("container");
   main.appendChild(container);
 
@@ -39,24 +41,29 @@ const endGame = (player) => {
   btnContainer.appendChild(btn);
 
   btn.addEventListener("click", () => {
-    form();
+    fadeTransition("container", "fadein");
+    
+    setTimeout(() => {
+      form();
+      const playerName = document.getElementById("name");
+      const formContainer = document.getElementById("form-container");
+      const playerForm = document.querySelector("form");
 
-    const playerName = document.getElementById("name");
-    const formContainer = document.getElementById("form-container");
-    const playerForm = document.querySelector("form");
+      playerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        formContainer.classList.toggle("fade");
 
-    playerForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      formContainer.classList.toggle("fade");
+        setTimeout(() => {
+          const player = new Player(playerName.value);
+          const computer = new Computer();
 
-      setTimeout(() => {
-        const player = new Player(playerName.value);
-        const computer = new Computer();
-
-        placeShipsBoard(player, computer);
-      }, 2000);
-    });
+          placeShipsBoard(player, computer);
+        }, 2000);
+      });
+    }, 2000);
   });
+
+  fadeTransition("container", "fadein");
 };
 
 export default endGame; 

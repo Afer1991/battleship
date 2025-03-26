@@ -1,6 +1,7 @@
 import renderShip from "./renderships.js";
 import typeWriter from "../helpers/typewriter.js";
 import endGame from "./endgame.js";
+import fadeTransition from "../helpers/fade.js";
 
 const playGame = (player, computer) => {
   renderShip(player, player.gameboard.fleet[0], player.gameboard.fleet[0].coordinates[0]["x"], player.gameboard.fleet[0].coordinates[0]["y"], player.gameboard.fleet[0].coordinates[0]["isVertical"]);
@@ -35,7 +36,11 @@ const playRound = (player, computer, square, x, y) => {
     computer.turn = true;
 
     if (computer.gameboard.allShipsSunk()) {
-      endGame(player);
+      fadeTransition("container", "fadein");
+
+      setTimeout(() => {
+        endGame(player);
+      }, 2000);
       return;
     };
 
@@ -55,8 +60,12 @@ const playRound = (player, computer, square, x, y) => {
         playerSquare.innerHTML = '<i class="fa-solid fa-x" style="color: #FF0022;"></i>'
       };
 
-      if (computer.gameboard.allShipsSunk()) {
-        endGame(computer);
+      if (player.gameboard.allShipsSunk()) {
+        fadeTransition("container", "fadein");
+
+        setTimeout(() => {
+          endGame(computer);
+        }, 2000);
         return;
       };
 

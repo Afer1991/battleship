@@ -2,6 +2,7 @@ import { createBoard, renderBoards } from "./renderboards";
 import renderShip from "./renderships";
 import Gameboard from "../classes/gameboard";
 import playGame from "./playgame";
+import fadeTransition from "../helpers/fade";
 
 const placeShipsBoard = (player, computer) => {
   const main = document.querySelector(".main");
@@ -47,9 +48,15 @@ const placeShipsBoard = (player, computer) => {
   });
 
   startBtn.addEventListener("click", () => {
-    renderBoards(player, computer);
-    playGame(player, computer);
+    fadeTransition("container", "fadein");
+    
+    setTimeout(() => {
+      renderBoards(player, computer);
+      playGame(player, computer);
+    }, 2000);
   });
+
+  fadeTransition("container", "fadein");
 };
 
 const pickRandomPlacement = (player) => {

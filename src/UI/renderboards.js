@@ -1,4 +1,5 @@
 import typeWriter from "../helpers/typewriter.js";
+import fadeTransition from "../helpers/fade.js";
 
 const createBoard = (gameboard, player) => {
   const container = document.createElement("div");
@@ -28,6 +29,7 @@ const renderBoards = (player, computer) => {
   };
 
   const container = document.createElement("div");
+  container.setAttribute("id", "container");
   container.classList.add("container");
   container.style.flexDirection = "column";
   main.appendChild(container);
@@ -65,6 +67,8 @@ const renderBoards = (player, computer) => {
   const computerBoard = createBoard(computer.gameboard.board, computer);
   computerBoard.setAttribute("id", "computer-board");
   computerBoardContainer.appendChild(computerBoard);
+
+  fadeTransition("container", "fadein");
 };
 
 export { createBoard, renderBoards };
