@@ -1,7 +1,5 @@
 import form from "./form";
 import { Player, Computer } from '../classes/players.js';
-import playGame from "./playgame.js";
-import { renderBoards } from './renderboards.js';
 import placeShipsBoard from "./placeships.js";
 import fadeTransition from "../helpers/fade.js";
 

@@ -2,8 +2,6 @@ import "./style.css";
 import { Player, Computer } from './classes/players.js';
 import ui from './UI/UI.js';
 import form from './UI/form.js';
-import playGame from "./UI/playgame.js";
-import { createBoard, renderBoards } from './UI/renderboards.js';
 import placeShipsBoard from "./UI/placeships.js";
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";

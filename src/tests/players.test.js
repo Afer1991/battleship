@@ -1,4 +1,4 @@
-import { Player, Computer } from '../classes/players';
+import { Computer } from '../classes/players';
 
 test('Computer does not make invalid moves', () => {
   const computer = new Computer();
